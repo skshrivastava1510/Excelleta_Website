@@ -430,7 +430,7 @@ export const CTASection = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-brand mb-4"
             >
-              Thank you! We'll be in touch shortly.
+              Thank you! We&apos;ll be in touch shortly.
             </motion.p>
           )}
           
