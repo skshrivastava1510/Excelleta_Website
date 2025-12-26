@@ -338,24 +338,27 @@ export const TestimonialsSection = () => {
           <div className="flex justify-center gap-4 mt-8">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:border-brand hover:text-brand transition-colors"
+              aria-label="Previous testimonial"
+              className="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:border-brand hover:text-brand transition-colors rounded-none"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={24} strokeWidth={2} />
             </button>
             <div className="flex items-center gap-2">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className={`w-2 h-2 rounded-full transition-colors ${i === activeIndex ? 'bg-brand' : 'bg-white/30'}`}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`w-3 h-3 rounded-full transition-colors ${i === activeIndex ? 'bg-brand' : 'bg-white/30 hover:bg-white/50'}`}
                 />
               ))}
             </div>
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:border-brand hover:text-brand transition-colors"
+              aria-label="Next testimonial"
+              className="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:border-brand hover:text-brand transition-colors rounded-none"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={24} strokeWidth={2} />
             </button>
           </div>
         </div>
