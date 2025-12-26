@@ -71,12 +71,19 @@ export const BenefitsSection = () => {
   );
 };
 
-// Animated Counter Component
+// Animated Counter Component with improved detection
 const AnimatedCounter = ({ value, suffix, label, inView }) => {
   const [count, setCount] = React.useState(0);
+  const [hasAnimated, setHasAnimated] = React.useState(false);
+  const counterRef = React.useRef(null);
+  const localInView = useInView(counterRef, { once: true, amount: 0.5 });
+  
+  // Use either passed inView or local detection
+  const shouldAnimate = (inView || localInView) && !hasAnimated;
   
   React.useEffect(() => {
-    if (inView) {
+    if (shouldAnimate) {
+      setHasAnimated(true);
       const duration = 2000;
       const steps = 60;
       const increment = value / steps;
@@ -92,11 +99,11 @@ const AnimatedCounter = ({ value, suffix, label, inView }) => {
       }, duration / steps);
       return () => clearInterval(timer);
     }
-  }, [inView, value]);
+  }, [shouldAnimate, value]);
 
   return (
-    <div className="text-center">
-      <div className="text-5xl md:text-6xl font-bold text-brand mb-2">
+    <div className="text-center" ref={counterRef}>
+      <div className="text-5xl md:text-6xl font-bold text-brand mb-2" data-value={value}>
         {count}{suffix}
       </div>
       <div className="text-gray-400 text-lg">{label}</div>
