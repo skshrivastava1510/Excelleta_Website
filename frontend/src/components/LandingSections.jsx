@@ -319,7 +319,7 @@ export const TestimonialsSection = () => {
           >
             <Quote className="absolute top-6 left-6 text-brand/30" size={48} />
             <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 relative z-10">
-              "{testimonials[activeIndex].quote}"
+              &ldquo;{testimonials[activeIndex].quote}&rdquo;
             </blockquote>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-brand/20 flex items-center justify-center text-brand font-bold">
