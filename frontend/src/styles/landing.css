@@ -1,0 +1,351 @@
+/* CostGenie Landing Page Styles */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --brand-primary: #00FFD1;
+  --brand-hover: rgba(0, 255, 209, 0.1);
+  --brand-active: #6FD2C0;
+  --bg-primary: #000000;
+  --bg-secondary: #121212;
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: #4D4D4D;
+  --border-subtle: rgba(255, 255, 255, 0.25);
+  --border-medium: rgba(255, 255, 255, 0.4);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Brand Color Utility */
+.text-brand {
+  color: var(--brand-primary);
+}
+
+.bg-brand {
+  background-color: var(--brand-primary);
+}
+
+.border-brand {
+  border-color: var(--brand-primary);
+}
+
+/* Grid Background Pattern */
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-active);
+}
+
+/* Button Overrides for Sharp Corners */
+.btn-primary {
+  background: var(--brand-primary);
+  color: #000000;
+  border: none;
+  border-radius: 0px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  min-height: 56px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.btn-primary:hover {
+  background: var(--brand-hover);
+  color: var(--brand-primary);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0px;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  min-height: 56px;
+}
+
+.btn-secondary:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* Glass Card Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow Effects */
+.glow-brand {
+  box-shadow: 0 0 40px rgba(0, 255, 209, 0.3);
+}
+
+.glow-brand-sm {
+  box-shadow: 0 0 20px rgba(0, 255, 209, 0.2);
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-active) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 209, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 209, 0.4);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+/* Parallax Layers */
+.parallax-layer {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* Typography */
+.display-huge {
+  font-size: 66px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.62px;
+}
+
+.display-large {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.display-medium {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.heading-1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+
+.heading-2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.body-large {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.body-medium {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .display-huge {
+    font-size: 40px;
+  }
+  
+  .display-large {
+    font-size: 32px;
+  }
+  
+  .display-medium {
+    font-size: 24px;
+  }
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.4s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 255, 209, 0.15);
+}
+
+/* Workflow Timeline */
+.workflow-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-primary), transparent);
+  transform: translateY(-50%);
+}
+
+.workflow-step {
+  position: relative;
+  z-index: 10;
+}
+
+.workflow-step::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--brand-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 80px;
+  color: var(--brand-primary);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* Industry Tiles */
+.industry-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-tile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--brand-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease-in-out;
+}
+
+.industry-tile:hover::after {
+  transform: scaleX(1);
+}
+
+/* Security Features Grid */
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+/* CTA Section Gradient */
+.cta-gradient {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(0, 255, 209, 0.05) 50%, var(--bg-primary) 100%);
+}
+
+/* Hide Spline Watermark */
+spline-viewer {
+  --spline-watermark-display: none;
+}
