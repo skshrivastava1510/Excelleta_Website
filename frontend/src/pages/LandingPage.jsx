@@ -402,6 +402,17 @@ const FeatureCardsSection = () => {
   );
 };
 
+// Import additional sections
+import {
+  BenefitsSection,
+  IndustriesSection,
+  WorkflowSection,
+  SecuritySection,
+  TestimonialsSection,
+  CTASection,
+  Footer
+} from '../components/LandingSections';
+
 export default function LandingPage() {
   return (
     <div className="bg-black min-h-screen">
@@ -410,6 +421,13 @@ export default function LandingPage() {
       <ProblemSection />
       <FeaturesStepsSection />
       <FeatureCardsSection />
+      <BenefitsSection />
+      <IndustriesSection />
+      <WorkflowSection />
+      <SecuritySection />
+      <TestimonialsSection />
+      <CTASection />
+      <Footer />
     </div>
   );
 }
