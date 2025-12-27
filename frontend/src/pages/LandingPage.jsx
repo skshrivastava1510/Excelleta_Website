@@ -94,13 +94,15 @@ const Navigation = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <a href={`https://wa.me/${companyInfo.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-brand hover:text-brand/80 flex items-center gap-2">
+          <a href={`https://wa.me/${companyInfo.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-[#4285F4] hover:text-[#5a9cf5] flex items-center gap-2">
             <MessageCircle size={18} />
             <span className="text-sm">WhatsApp</span>
           </a>
-          <Button className="bg-brand text-black hover:bg-brand/90 px-6" onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}>
-            Book a Demo
-          </Button>
+          <a href={calendlyLink} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-[#4285F4] text-white hover:bg-[#5a9cf5] px-6 rounded-lg">
+              Book a Demo
+            </Button>
+          </a>
         </div>
 
         <button
@@ -127,12 +129,14 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
-              <a href={`https://wa.me/${companyInfo.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-brand flex items-center gap-2 py-2">
+              <a href={`https://wa.me/${companyInfo.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-[#4285F4] flex items-center gap-2 py-2">
                 <MessageCircle size={18} /> Chat on WhatsApp
               </a>
-              <Button className="bg-brand text-black w-full mt-2" onClick={() => { setIsMobileMenuOpen(false); document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' }); }}>
-                Book a Demo
-              </Button>
+              <a href={calendlyLink} target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button className="bg-[#4285F4] text-white w-full mt-2 rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>
+                  Book a Demo
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}
