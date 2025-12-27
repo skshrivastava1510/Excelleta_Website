@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the CostGenie landing page for all components and interactions as specified in the review request"
+user_problem_statement: "Test the Excelleta Tech landing page for all components and interactions as specified in the review request"
 
 frontend:
   - task: "Navigation Header"
