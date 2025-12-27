@@ -502,26 +502,40 @@ export const AboutSection = () => {
 
   return (
     <section ref={ref} id="about" className="py-24 bg-black relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Parallax floating elements */}
+      <motion.div style={{ y: y1 }} className="absolute top-20 right-20 w-40 h-40 bg-[#4285F4]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-20 left-20 w-60 h-60 bg-[#34A853]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y1 }} className="absolute top-1/2 left-10 w-24 h-24 border border-[#FBBC05]/20 rounded-full" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-1/3 right-10 w-16 h-16 border border-[#EA4335]/20 rounded-xl rotate-45" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Image */}
+          {/* Left - Image with parallax */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
+            style={{ scale }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#4285F4]/20">
               <img 
                 src={siteImages.about} 
                 alt="Excelleta Team" 
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[450px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <img src={companyLogo} alt="Excelleta" className="h-10 mb-3" />
-                <p className="text-white text-lg font-medium">{companyInfo.tagline}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <img src={companyLogo} alt="Excelleta" className="h-12 mb-4" />
+                <p className="text-white text-xl font-semibold">{companyInfo.tagline}</p>
               </div>
             </div>
+            {/* Floating badge */}
+            <motion.div 
+              style={{ y: y2 }}
+              className="absolute -bottom-4 -right-4 bg-[#34A853] text-white px-6 py-3 rounded-xl font-semibold shadow-lg"
+            >
+              CII DigiTech Recognized
+            </motion.div>
           </motion.div>
 
           {/* Right - Content */}
@@ -531,19 +545,24 @@ export const AboutSection = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">About Excelleta Tech</h2>
             <p className="text-gray-400 text-lg mb-6">
-              An Indian manufacturing software company transforming how auto-component and engineering manufacturers handle RFQ and costing operations.
+              An Indian manufacturing software company transforming how auto-component and engineering manufacturers handle RFQ and quotation operations.
             </p>
             <p className="text-gray-400 mb-8">
-              Recognized by CII DigiTech for innovation, we combine deep manufacturing domain expertise with modern technology to deliver solutions that work on the shop floor.
+              We combine deep manufacturing domain expertise with modern technology to deliver solutions that work on the shop floor.
             </p>
 
             <h3 className="text-xl font-bold text-white mb-4">Our Values: The 4Ps</h3>
             <div className="grid grid-cols-2 gap-4">
               {companyInfo.values.map((value, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 p-5 rounded-lg hover:border-white/20 transition-colors">
+                <motion.div 
+                  key={i} 
+                  className="bg-white/5 border border-white/10 p-5 rounded-xl hover:border-white/20 transition-all hover:scale-105"
+                  whileHover={{ y: -5 }}
+                  style={{ boxShadow: `0 10px 30px -10px ${valueColors[i]}30` }}
+                >
                   <h4 className="font-semibold text-lg mb-1" style={{ color: valueColors[i] }}>{value.name}</h4>
                   <p className="text-gray-400 text-sm">{value.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
