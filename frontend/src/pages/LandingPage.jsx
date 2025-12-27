@@ -549,7 +549,6 @@ import {
   ClientLogosSection,
   ComparisonSection,
   SolutionsSection,
-  ImplementationSection,
   StatsSection,
   TestimonialsSection,
   AboutSection,
@@ -570,7 +569,6 @@ export default function LandingPage() {
       <ComparisonSection />
       <SolutionsSection />
       <StatsSection />
-      <ImplementationSection />
       <TestimonialsSection />
       <AboutSection />
       <DemoFormSection />
