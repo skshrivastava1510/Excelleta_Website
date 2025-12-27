@@ -229,15 +229,23 @@ const HeroSection = () => {
   );
 };
 
-// Key Benefits Section
+// Key Benefits Section with Parallax
 const BenefitsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y1 = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-30, 30]);
   const benefitColors = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#4285F4'];
 
   return (
-    <section ref={ref} className="py-24 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={ref} className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      {/* Parallax floating elements */}
+      <motion.div style={{ y: y1 }} className="absolute top-20 left-10 w-32 h-32 bg-[#4285F4]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-20 right-10 w-48 h-48 bg-[#34A853]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y1 }} className="absolute top-1/2 right-1/4 w-24 h-24 border border-[#FBBC05]/20 rounded-full" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -253,15 +261,25 @@ const BenefitsSection = () => {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, y: 50, rotateX: 15 }}
+                animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="perspective-1000"
               >
-                <Card className="bg-white/5 border-white/10 hover:border-white/30 transition-all duration-300 h-full rounded-xl">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-14 h-14 mx-auto flex items-center justify-center mb-4 rounded-xl" style={{ backgroundColor: `${benefitColors[i]}20` }}>
-                      <Icon style={{ color: benefitColors[i] }} size={28} />
-                    </div>
+                <Card className="bg-white/5 border-white/10 hover:border-white/30 transition-all duration-300 h-full rounded-xl backdrop-blur-sm relative overflow-hidden group">
+                  {/* Animated gradient border on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: `linear-gradient(135deg, ${benefitColors[i]}20, transparent)` }} />
+                  <CardContent className="p-6 text-center relative z-10">
+                    <motion.div 
+                      className="w-16 h-16 mx-auto flex items-center justify-center mb-4 rounded-xl relative"
+                      style={{ backgroundColor: `${benefitColors[i]}15` }}
+                      whileHover={{ rotate: 5, scale: 1.1 }}
+                    >
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 rounded-xl blur-md opacity-50" style={{ backgroundColor: benefitColors[i] }} />
+                      <Icon style={{ color: benefitColors[i] }} size={30} className="relative z-10" />
+                    </motion.div>
                     <h3 className="text-white font-semibold text-lg mb-2">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm">{benefit.description}</p>
                   </CardContent>
@@ -275,14 +293,28 @@ const BenefitsSection = () => {
   );
 };
 
-// Problem Section
+// Problem Section with Pictorial Elements
 const ProblemSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
+  const problemImages = [
+    siteImages.excelChaos,
+    siteImages.frustrated,
+    siteImages.solution,
+    siteImages.automation
+  ];
 
   return (
-    <section ref={ref} className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={ref} className="py-24 bg-black relative overflow-hidden">
+      {/* Animated background */}
+      <motion.div style={{ y }} className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 grid-background" />
+      </motion.div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
