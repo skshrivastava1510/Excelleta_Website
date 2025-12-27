@@ -248,12 +248,12 @@ export const comparisonData = {
     { category: "Audit Trail", excel: "None or limited", excelleta: "Complete history of changes" },
     { category: "Team Collaboration", excel: "File sharing chaos", excelleta: "Real-time, role-based access" },
     { category: "Turnaround Time", excel: "5-7 days typical", excelleta: "1-2 days with automation" },
-    { category: "Error Rate", excel: "15-20% typical", excelleta: "Under 2% with validation" },
+    { category: "Error Rate", excel: "15-20% typical", excelleta: "0% with smart validation" },
     { category: "Management Visibility", excel: "Manual reports, delayed", excelleta: "Real-time dashboards" },
     { category: "Scalability", excel: "Degrades with volume", excelleta: "Enterprise-grade, unlimited" },
     { category: "Security", excel: "Basic file protection", excelleta: "Enterprise encryption & RBAC" },
     { category: "ERP Integration", excel: "Manual re-entry", excelleta: "Seamless connectivity" },
-    { category: "Costing Accuracy", excel: "Formula errors common", excelleta: "Norms-based, validated" }
+    { category: "Quote Accuracy", excel: "Formula errors common", excelleta: "Norms-based, validated" }
   ]
 };
 
@@ -265,16 +265,16 @@ export const industriesData = [
     challenges: [
       "High RFQ volume with tight deadlines",
       "Complex BOMs with frequent revisions",
-      "OEM-specific costing formats required",
+      "OEM-specific quote formats required",
       "Multi-plant coordination challenges"
     ]
   },
   {
     icon: "Factory",
-    title: "Fabrication & Sheet Metal",
-    description: "Custom fabrication shops with diverse process capabilities",
+    title: "Fabrication, Sheet Metal & Plastics",
+    description: "Custom fabrication, plastic molding, rubber parts, and casting manufacturers",
     challenges: [
-      "Process-specific costing complexity",
+      "Process-specific pricing complexity",
       "Material yield and scrap calculations",
       "Tooling cost amortization",
       "Quick-turn quotation demands"
@@ -285,8 +285,8 @@ export const industriesData = [
     title: "Tool & Die Manufacturers",
     description: "Precision tooling with complex development cycles",
     challenges: [
-      "Tooling lifecycle cost tracking",
-      "Trial and development cost allocation",
+      "Tooling lifecycle tracking",
+      "Trial and development allocation",
       "Design revision management",
       "Long project timelines"
     ]
