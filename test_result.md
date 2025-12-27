@@ -518,7 +518,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Updated Landing Page Features Testing Complete"
+    - "Modernized Landing Page Testing Complete"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
