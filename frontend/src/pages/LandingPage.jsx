@@ -471,6 +471,7 @@ const PlatformSection = () => {
 
 // Import remaining sections
 import {
+  ClientLogosSection,
   ComparisonSection,
   SolutionsSection,
   ImplementationSection,
@@ -486,6 +487,7 @@ export default function LandingPage() {
     <div className="bg-black min-h-screen">
       <Navigation />
       <HeroSection />
+      <ClientLogosSection />
       <BenefitsSection />
       <ProblemSection />
       <HowItWorksSection />
