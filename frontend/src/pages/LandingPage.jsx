@@ -172,8 +172,8 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-brand/10 border border-brand/30 px-4 py-2 mb-6">
-              <span className="text-brand text-sm font-medium">Purpose-Built for Manufacturing</span>
+            <div className="inline-flex items-center gap-2 bg-[#4285F4]/10 border border-[#4285F4]/30 px-4 py-2 mb-6 rounded-full">
+              <span className="text-[#4285F4] text-sm font-medium">Purpose-Built for Manufacturing</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -185,23 +185,18 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button
-                className="bg-brand text-black hover:bg-brand/90 px-8 py-6 text-lg font-medium group"
-                onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                {heroData.primaryCta}
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </Button>
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg">
-                <Download className="mr-2" size={20} />
-                {heroData.secondaryCta}
-              </Button>
+              <a href={calendlyLink} target="_blank" rel="noopener noreferrer">
+                <Button className="bg-[#4285F4] text-white hover:bg-[#5a9cf5] px-8 py-6 text-lg font-medium group rounded-lg">
+                  {heroData.primaryCta}
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+                </Button>
+              </a>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-6">
               {heroData.trustBadges.map((badge, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-gray-500">
-                  <CheckCircle className="text-brand" size={16} />
+                <div key={i} className="flex items-center gap-2 text-sm text-gray-400">
+                  <CheckCircle className="text-[#34A853]" size={16} />
                   {badge}
                 </div>
               ))}
