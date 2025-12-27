@@ -4,17 +4,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --brand-primary: #00FFD1;
-  --brand-hover: rgba(0, 255, 209, 0.1);
-  --brand-active: #6FD2C0;
+  /* Brand Colors from Logo */
+  --brand-primary: #4285F4;      /* Primary Blue */
+  --brand-red: #EA4335;          /* Red accent */
+  --brand-yellow: #FBBC05;       /* Yellow accent */
+  --brand-green: #34A853;        /* Green accent */
+  --brand-hover: rgba(66, 133, 244, 0.15);
+  --brand-active: #5a9cf5;
+  
+  /* Backgrounds - Dark Theme Foundation */
   --bg-primary: #000000;
-  --bg-secondary: #121212;
-  --bg-overlay: rgba(255, 255, 255, 0.1);
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --bg-overlay: rgba(255, 255, 255, 0.05);
+  
+  /* Text - High Contrast */
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.85);
-  --text-muted: #4D4D4D;
-  --border-subtle: rgba(255, 255, 255, 0.25);
-  --border-medium: rgba(255, 255, 255, 0.4);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.2);
 }
 
 body {
