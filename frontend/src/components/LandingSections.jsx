@@ -441,57 +441,53 @@ export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const valueColors = ['#4285F4', '#EA4335', '#FBBC05', '#34A853'];
+
   return (
-    <section ref={ref} id="about" className="py-24 bg-black">
+    <section ref={ref} id="about" className="py-24 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left - Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
+            className="relative"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">About Excelleta Tech</h2>
-            <p className="text-gray-400 text-lg mb-6">
-              {companyInfo.name} is an Indian manufacturing software company focused on digitizing RFQ
-              and costing operations for auto-component and engineering manufacturers.
-            </p>
-            <p className="text-gray-400 mb-6">
-              We understand that manufacturing companies have built their expertise over decades,
-              but their RFQ processes are often still trapped in Excel spreadsheets and email threads.
-              Our mission is to provide a purpose-built platform that brings order to this chaos
-              without forcing a complete process overhaul.
-            </p>
-            <p className="text-gray-400 mb-8">
-              Recognized by CII DigiTech for innovation, Excelleta combines deep manufacturing domain
-              expertise with modern technology to deliver solutions that actually work on the shop floor.
-            </p>
-
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-10 h-10 bg-brand flex items-center justify-center">
-                <span className="text-black font-bold text-xl">E</span>
-              </div>
-              <div>
-                <span className="text-white text-xl font-semibold">{companyInfo.tagline}</span>
+            <div className="relative rounded-2xl overflow-hidden">
+              <img 
+                src={siteImages.about} 
+                alt="Excelleta Team" 
+                className="w-full h-[400px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <img src={companyLogo} alt="Excelleta" className="h-10 mb-3" />
+                <p className="text-white text-lg font-medium">{companyInfo.tagline}</p>
               </div>
             </div>
           </motion.div>
 
+          {/* Right - Content */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Our Values: The 4Ps</h3>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">About Excelleta Tech</h2>
+            <p className="text-gray-400 text-lg mb-6">
+              An Indian manufacturing software company transforming how auto-component and engineering manufacturers handle RFQ and costing operations.
+            </p>
+            <p className="text-gray-400 mb-8">
+              Recognized by CII DigiTech for innovation, we combine deep manufacturing domain expertise with modern technology to deliver solutions that work on the shop floor.
+            </p>
+
+            <h3 className="text-xl font-bold text-white mb-4">Our Values: The 4Ps</h3>
             <div className="grid grid-cols-2 gap-4">
               {companyInfo.values.map((value, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 p-6">
-                  <h4 className="text-brand font-semibold text-lg mb-2">{value.name}</h4>
+                <div key={i} className="bg-white/5 border border-white/10 p-5 rounded-lg hover:border-white/20 transition-colors">
+                  <h4 className="font-semibold text-lg mb-1" style={{ color: valueColors[i] }}>{value.name}</h4>
                   <p className="text-gray-400 text-sm">{value.description}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-8 p-6 bg-brand/10 border border-brand/30">
-              <h4 className="text-white font-semibold mb-2">Our Mission</h4>
-              <p className="text-gray-300 text-sm">{companyInfo.mission}</p>
             </div>
           </motion.div>
         </div>
