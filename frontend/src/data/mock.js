@@ -1,128 +1,347 @@
-// CostGenie Landing Page Mock Data
+// Excelleta Tech Website Data
 
 export const heroData = {
-  headline: "Quote Faster. Cost Smarter. Win More Deals.",
-  subtext: "A complete costing and quotation platform built for engineering & manufacturing businesses. Generate accurate, detailed quotes in minutes—based on processes, materials, tooling, overheads, and margins.",
-  primaryCta: "Request a Demo",
-  secondaryCta: "See How It Works",
+  headline: "Replace Scattered RFQs & Excel Chaos with One Unified Platform",
+  subtext: "Excelleta digitizes your entire RFQ-to-Costing journey. Centralized data, automated workflows, traceable approvals—all in one place. Purpose-built for auto-component and manufacturing companies.",
+  primaryCta: "Book a Demo",
+  secondaryCta: "Download Overview Deck",
   trustBadges: [
-    "Trusted by leading manufacturers",
-    "Accurate costing across processes",
-    "Built for engineering complexity"
+    "Trusted by leading auto-component manufacturers",
+    "50-70% faster quotation turnaround",
+    "Recognized by CII DigiTech for innovation"
   ]
 };
 
-export const problemData = {
-  heading: "Manual costing kills margins.",
-  painPoints: [
-    { icon: "FileSpreadsheet", text: "Excel-based cost sheets cause costly errors" },
-    { icon: "AlertTriangle", text: "Overheads and wastage often missed" },
-    { icon: "TrendingDown", text: "Wrong margins = lost profits or lost deals" },
-    { icon: "Clock", text: "Quotation process takes too long" }
-  ]
-};
-
-export const featuresSteps = [
+export const benefitBlocks = [
   {
-    id: 1,
-    title: "Material Costing",
-    description: "Scrap and yield included, auto rate library for instant calculations",
-    icon: "Layers"
+    icon: "Zap",
+    title: "Faster RFQ Turnaround",
+    description: "Reduce quotation time from days to hours with automated costing and streamlined approvals."
   },
   {
-    id: 2,
-    title: "Process Costing",
-    description: "Stamping, fabrication, welding, machining, bending, heat treatment—all covered",
-    icon: "Cog"
+    icon: "Database",
+    title: "Centralized Data",
+    description: "One platform for all RFQs, BOMs, costing, and customer data—no more scattered spreadsheets."
   },
   {
-    id: 3,
-    title: "Tooling & Development",
-    description: "Die cost amortization, tooling lifecycle tracking, trial costs",
-    icon: "Wrench"
+    icon: "Target",
+    title: "Improved Accuracy",
+    description: "AI-driven costing and norms libraries reduce errors from 15-20% to under 2%."
   },
   {
-    id: 4,
-    title: "Overheads & Profit",
-    description: "Fixed + variable OH, packaging, logistics, customizable margin models",
-    icon: "Calculator"
+    icon: "Eye",
+    title: "Real-Time Visibility",
+    description: "Live dashboards show RFQ status, SLA timers, profitability, and team performance instantly."
   },
   {
-    id: 5,
-    title: "Quote Builder",
-    description: "Professional quote formats, one-click export to PDF/Excel",
-    icon: "FileText"
+    icon: "Shield",
+    title: "Complete Auditability",
+    description: "Every change is tracked. Version control, approval history, and audit trails built-in."
   }
 ];
 
-export const featureCards = [
-  { icon: "Workflow", title: "Process-based cost models", description: "Tailored costing for every manufacturing process" },
-  { icon: "ListTree", title: "BOM + routing support", description: "Full bill of materials and routing integration" },
-  { icon: "GitBranch", title: "Version control", description: "Track changes across cost sheet revisions" },
-  { icon: "Users", title: "Vendor rate library", description: "Centralized purchase rates from all vendors" },
-  { icon: "FileStack", title: "Quotation templates", description: "Pre-built templates for faster quotes" },
-  { icon: "CheckSquare", title: "Approval workflows", description: "Multi-level approvals for compliance" },
-  { icon: "Building2", title: "Multi-plant costing", description: "Unified costing across locations" },
-  { icon: "Plug", title: "ERP integration ready", description: "SAP, Zoho, Tally, and custom APIs" }
+export const howItWorks = [
+  {
+    step: 1,
+    title: "Capture & Assign",
+    description: "RFQs are logged centrally, auto-categorized, and assigned to the right team members with SLA timers."
+  },
+  {
+    step: 2,
+    title: "Evaluate & Cost",
+    description: "Technical feasibility, BOM creation, and automated costing happen in parallel with norms-based calculations."
+  },
+  {
+    step: 3,
+    title: "Review & Approve",
+    description: "Multi-level approval workflows route quotes to the right stakeholders with complete visibility."
+  },
+  {
+    step: 4,
+    title: "Quote & Win",
+    description: "Generate professional quotations, track customer responses, and analyze win/loss patterns."
+  }
 ];
 
-export const benefitsData = [
-  { value: 60, suffix: "%", label: "Reduce quote time" },
-  { value: 40, suffix: "%", label: "Improve costing accuracy" },
-  { value: 90, suffix: "%", label: "Margin leakages reduced" },
-  { value: 100, suffix: "%", label: "Process standardization" }
+export const problemData = {
+  heading: "Excel and Email Are Holding You Back",
+  painPoints: [
+    { icon: "FileSpreadsheet", text: "Multiple file versions create confusion and costly errors" },
+    { icon: "Clock", text: "Manual costing takes days instead of hours" },
+    { icon: "AlertTriangle", text: "No audit trail—who changed what and when?" },
+    { icon: "Eye", text: "Management lacks real-time visibility into RFQ pipeline" }
+  ]
+};
+
+export const platformModules = [
+  {
+    id: "rfq",
+    title: "RFQ Capture & Tracking",
+    icon: "Inbox",
+    overview: "Centralized workspace for all customer RFQs with live status, SLA timers, and automated escalations.",
+    features: [
+      "Centralized RFQ inbox with auto-categorization",
+      "Real-time status tracking and SLA monitoring",
+      "Automated alerts and escalation triggers",
+      "Document standardization and attachment management",
+      "Customer-specific requirement handling",
+      "Integration with email for seamless RFQ capture"
+    ],
+    benefits: [
+      "Never miss an RFQ deadline again",
+      "50-70% faster RFQ processing",
+      "Complete visibility for management reviews",
+      "Reduced coordination overhead across teams"
+    ]
+  },
+  {
+    id: "bom",
+    title: "BOM & Technical Evaluation",
+    icon: "Layers",
+    overview: "Streamlined Bill of Materials creation with multi-level support, version control, and CAD/PLM integration.",
+    features: [
+      "Streamlined BOM creation from drawings",
+      "Multi-level BOM support (parent-child hierarchies)",
+      "BOM version control and comparison",
+      "Component tracking and reusability",
+      "CAD/PLM integration for drawing data",
+      "ECN (Engineering Change Notice) handling"
+    ],
+    benefits: [
+      "Zero version conflicts with BOM compare",
+      "Traceable, error-free outputs",
+      "Faster technical evaluation cycles",
+      "Historical BOM data for reuse"
+    ]
+  },
+  {
+    id: "costing",
+    title: "Costing Engine & Templates",
+    icon: "Calculator",
+    overview: "Automated cost estimation using norms libraries, MHR rates, and intelligent costing methods.",
+    features: [
+      "Multiple costing methods (Internal, Customer, Tooling)",
+      "Auto-cost estimation from BOM/TE sheet",
+      "Machine Hour Rate (MHR) libraries",
+      "Surface treatment and process rate cards",
+      "Norms manager for labor, tooling, packing",
+      "Instant profitability view (P&L, EBITDA, IRR)"
+    ],
+    benefits: [
+      "Quote prep time cut by 50-70%",
+      "Costing accuracy improved to 99%+",
+      "Margin optimization with profitability insights",
+      "Standardized costing across all plants"
+    ]
+  },
+  {
+    id: "workflow",
+    title: "Workflow & Approvals",
+    icon: "GitBranch",
+    overview: "Configurable approval workflows with role-based access, audit trails, and compliance tracking.",
+    features: [
+      "Multi-level approval workflows",
+      "Role-based access control (RBAC)",
+      "Cost versioning with side-by-side comparison",
+      "Complete audit trail and history",
+      "Automated notifications at each stage",
+      "Compliance-ready documentation"
+    ],
+    benefits: [
+      "Faster approvals with clear accountability",
+      "No more approval bottlenecks",
+      "Complete traceability for audits",
+      "Reduced rework from version conflicts"
+    ]
+  },
+  {
+    id: "analytics",
+    title: "Dashboards & Analytics",
+    icon: "BarChart3",
+    overview: "Real-time dashboards and reports for RFQ funnel, conversion rates, and business performance.",
+    features: [
+      "RFQ funnel and conversion ratio tracking",
+      "RFQ aging and delay reports",
+      "Cost trend analysis across customers/parts",
+      "Supplier performance scorecards",
+      "KAM (Key Account Manager) metrics",
+      "Custom report builder with export"
+    ],
+    benefits: [
+      "Management reviews in minutes, not hours",
+      "Data-driven decision making",
+      "Early identification of bottlenecks",
+      "Win/loss pattern analysis"
+    ]
+  },
+  {
+    id: "masters",
+    title: "Master Data Management",
+    icon: "Database",
+    overview: "Centralized management of customers, parts, suppliers, and rate libraries.",
+    features: [
+      "Customer and contact management",
+      "Part master with specifications",
+      "Supplier and vendor rate library",
+      "RM (Raw Material) amendment tracking",
+      "Customer-specific norms and preferences",
+      "Historical data for intelligent reuse"
+    ],
+    benefits: [
+      "Single source of truth for all master data",
+      "RM price change impact alerts",
+      "Faster quoting with historical reference",
+      "Optimized supplier management"
+    ]
+  }
 ];
+
+export const comparisonData = {
+  dimensions: [
+    { category: "Data Centralization", excel: "Scattered files across systems", excelleta: "Single unified platform" },
+    { category: "Version Control", excel: "Manual, error-prone", excelleta: "Automatic with comparison" },
+    { category: "Approval Tracking", excel: "Via email, hard to trace", excelleta: "Built-in workflows with audit" },
+    { category: "Audit Trail", excel: "None or limited", excelleta: "Complete history of changes" },
+    { category: "Team Collaboration", excel: "File sharing chaos", excelleta: "Real-time, role-based access" },
+    { category: "Turnaround Time", excel: "5-7 days typical", excelleta: "1-2 days with automation" },
+    { category: "Error Rate", excel: "15-20% typical", excelleta: "Under 2% with validation" },
+    { category: "Management Visibility", excel: "Manual reports, delayed", excelleta: "Real-time dashboards" },
+    { category: "Scalability", excel: "Degrades with volume", excelleta: "Enterprise-grade, unlimited" },
+    { category: "Security", excel: "Basic file protection", excelleta: "Enterprise encryption & RBAC" },
+    { category: "ERP Integration", excel: "Manual re-entry", excelleta: "Seamless connectivity" },
+    { category: "Costing Accuracy", excel: "Formula errors common", excelleta: "Norms-based, validated" }
+  ]
+};
 
 export const industriesData = [
-  { icon: "Car", title: "Automotive Suppliers", description: "Tier 1/2/3 component manufacturers" },
-  { icon: "Factory", title: "Fabrication Shops", description: "Custom metal fabrication" },
-  { icon: "Layers", title: "Sheet Metal Components", description: "Precision sheet metal work" },
-  { icon: "Hammer", title: "Tooling & Die Makers", description: "Tool & die manufacturing" },
-  { icon: "Briefcase", title: "Contract Manufacturers", description: "Job shops & contract work" },
-  { icon: "Truck", title: "Heavy Equipment", description: "Earthmoving & construction" }
+  {
+    icon: "Car",
+    title: "Auto-Component Manufacturers",
+    description: "Tier 1, 2, 3 suppliers managing high-volume RFQs from OEMs",
+    challenges: [
+      "High RFQ volume with tight deadlines",
+      "Complex BOMs with frequent revisions",
+      "OEM-specific costing formats required",
+      "Multi-plant coordination challenges"
+    ]
+  },
+  {
+    icon: "Factory",
+    title: "Fabrication & Sheet Metal",
+    description: "Custom fabrication shops with diverse process capabilities",
+    challenges: [
+      "Process-specific costing complexity",
+      "Material yield and scrap calculations",
+      "Tooling cost amortization",
+      "Quick-turn quotation demands"
+    ]
+  },
+  {
+    icon: "Wrench",
+    title: "Tool & Die Manufacturers",
+    description: "Precision tooling with complex development cycles",
+    challenges: [
+      "Tooling lifecycle cost tracking",
+      "Trial and development cost allocation",
+      "Design revision management",
+      "Long project timelines"
+    ]
+  },
+  {
+    icon: "Building2",
+    title: "Engineering & EPC",
+    description: "Project-based manufacturing with engineering complexity",
+    challenges: [
+      "Multi-discipline coordination",
+      "Change order management",
+      "Subcontractor cost consolidation",
+      "Project profitability tracking"
+    ]
+  }
 ];
 
-export const workflowSteps = [
-  { step: "RFQ", description: "Receive customer request" },
-  { step: "Cost Sheet", description: "Build detailed costing" },
-  { step: "Review", description: "Internal validation" },
-  { step: "Quote", description: "Generate quotation" },
-  { step: "Customer", description: "Send to customer" },
-  { step: "Win Deal", description: "Close the order" }
-];
-
-export const securityFeatures = [
-  { icon: "Lock", title: "Data Encryption", description: "Enterprise-grade AES-256" },
-  { icon: "Shield", title: "Role-based Access", description: "Granular permissions" },
-  { icon: "FileSearch", title: "Audit Logs", description: "Complete activity tracking" },
-  { icon: "Cloud", title: "Deployment Options", description: "On-prem or cloud" },
-  { icon: "Webhook", title: "Integration APIs", description: "RESTful API access" }
+export const implementationSteps = [
+  {
+    phase: "Discovery",
+    duration: "Week 1",
+    description: "Understand your current RFQ process, pain points, and requirements. Map existing workflows and data sources."
+  },
+  {
+    phase: "Configuration",
+    duration: "Week 2-3",
+    description: "Set up the platform with your costing templates, approval workflows, and master data structures."
+  },
+  {
+    phase: "Data Migration",
+    duration: "Week 3-4",
+    description: "Import existing customer data, part masters, rate libraries, and historical references."
+  },
+  {
+    phase: "UAT & Training",
+    duration: "Week 4-5",
+    description: "User acceptance testing with your team. Role-based training for costing engineers, sales, and management."
+  },
+  {
+    phase: "Go-Live",
+    duration: "Week 5-6",
+    description: "Controlled go-live with hypercare support. Parallel running option available for risk mitigation."
+  },
+  {
+    phase: "Optimization",
+    duration: "Ongoing",
+    description: "Continuous improvement based on usage patterns. Regular check-ins and feature enhancements."
+  }
 ];
 
 export const testimonials = [
   {
-    quote: "CostGenie reduced our quotation time from 3 days to 3 hours. The accuracy improvement has directly impacted our win rate.",
-    author: "Rajesh Kumar",
-    role: "VP Operations",
-    company: "AutoParts India Ltd"
+    quote: "We went from 5-day quotation cycles to under 2 days. The BOM version control alone saved us countless hours of rework.",
+    author: "Operations Head",
+    role: "Tier-1 Auto-Component Manufacturer",
+    company: "Leading Automotive Supplier"
   },
   {
-    quote: "Finally, a costing tool that understands manufacturing complexity. The process-based models are exactly what we needed.",
-    author: "Sarah Chen",
-    role: "Costing Manager",
-    company: "Precision Fab Co."
+    quote: "Finally, our management has real-time visibility into the RFQ pipeline. Weekly reviews now take minutes instead of half a day.",
+    author: "VP Sales",
+    role: "Sheet Metal Fabrication Company",
+    company: "Mid-size Manufacturing Enterprise"
   },
   {
-    quote: "We standardized costing across 4 plants in 2 months. The ROI was visible within the first quarter.",
-    author: "Michael Torres",
-    role: "CFO",
-    company: "MetalWorks Global"
+    quote: "The audit trail and approval workflows gave us the control we needed. No more confusion about who approved what.",
+    author: "Costing Manager",
+    role: "Multi-plant Manufacturing Setup",
+    company: "Engineering Products Company"
   }
 ];
 
+export const companyInfo = {
+  name: "Excelleta Tech Pvt. Ltd.",
+  tagline: "Smarter Workflows. Better Growth.",
+  mission: "To digitize and streamline RFQ-to-Costing operations for manufacturing companies, replacing scattered spreadsheets with intelligent, unified platforms.",
+  vision: "To be the trusted partner for manufacturing companies seeking operational excellence through purpose-built technology solutions.",
+  values: [
+    { name: "Passion", description: "Deeply committed to solving manufacturing challenges" },
+    { name: "Perfection", description: "Attention to detail in every solution we deliver" },
+    { name: "Pride", description: "Taking ownership of our work and its outcomes" },
+    { name: "Promptness", description: "Delivering results swiftly without compromising quality" }
+  ],
+  address: "No 706 Block-E 7th floor, Dwarka Sector 19B, (Opposite Dwarka Golf Course) New Delhi 110075",
+  email: "info@excelleta.tech",
+  salesEmail: "skshrivastava@excelleta.tech",
+  phone: "+91 7290076170",
+  whatsapp: "+917290076170"
+};
+
 export const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Benefits", href: "#benefits" },
-  { label: "Industries", href: "#industries" },
-  { label: "Security", href: "#security" }
+  { label: "Platform", href: "#platform" },
+  { label: "Solutions", href: "#solutions" },
+  { label: "Why Excelleta", href: "#why-excelleta" },
+  { label: "About", href: "#about" }
+];
+
+export const stats = [
+  { value: 70, suffix: "%", label: "Faster Quotation" },
+  { value: 98, suffix: "%", label: "Costing Accuracy" },
+  { value: 90, suffix: "%", label: "Fewer Missed Deadlines" },
+  { value: 60, suffix: "%", label: "Less Rework" }
 ];
