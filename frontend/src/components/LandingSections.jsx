@@ -231,6 +231,7 @@ export const SolutionsSection = () => {
 export const StatsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const statColors = ['#4285F4', '#34A853', '#FBBC05', '#EA4335'];
 
   return (
     <section ref={ref} className="py-24 bg-[#0a0a0a]">
@@ -253,13 +254,14 @@ export const StatsSection = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="text-center p-8 bg-white/5 border border-white/10"
+              className="text-center p-8 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 transition-colors"
             >
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}
                 label={stat.label}
                 inView={isInView}
+                color={statColors[i]}
               />
             </motion.div>
           ))}
@@ -270,7 +272,7 @@ export const StatsSection = () => {
 };
 
 // Animated Counter (duplicate for this file)
-const AnimatedCounter = ({ value, suffix, label, inView }) => {
+const AnimatedCounter = ({ value, suffix, label, inView, color = '#4285F4' }) => {
   const [count, setCount] = React.useState(0);
   const [hasAnimated, setHasAnimated] = React.useState(false);
 
