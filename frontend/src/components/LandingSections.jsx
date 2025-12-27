@@ -791,6 +791,7 @@ export const Footer = () => {
 };
 
 export default {
+  ClientLogosSection,
   ComparisonSection,
   SolutionsSection,
   StatsSection,
