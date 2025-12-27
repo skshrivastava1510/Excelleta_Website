@@ -149,7 +149,14 @@ export const ComparisonSection = () => {
   );
 };
 
-// Solutions Section (Industries)
+// Solutions Section (Industries) with Images
+const industryImages = [
+  "https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "https://images.pexels.com/photos/50691/drill-milling-milling-machine-drilling-50691.jpeg?auto=compress&cs=tinysrgb&w=600",
+  "https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=600"
+];
+
 export const SolutionsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -178,20 +185,26 @@ export const SolutionsSection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1 }}
               >
-                <Card className="bg-white/5 border-white/10 hover:border-brand/30 transition-all duration-300 h-full">
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-14 h-14 bg-brand/20 flex items-center justify-center flex-shrink-0">
-                        <Icon className="text-brand" size={28} />
+                <Card className="bg-white/5 border-white/10 hover:border-brand/30 transition-all duration-300 h-full overflow-hidden group">
+                  {/* Industry Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={industryImages[i]} 
+                      alt={industry.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                    <div className="absolute bottom-4 left-6 flex items-center gap-3">
+                      <div className="w-12 h-12 bg-brand/20 backdrop-blur-sm flex items-center justify-center">
+                        <Icon className="text-brand" size={24} />
                       </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-white mb-1">{industry.title}</h3>
-                        <p className="text-gray-400">{industry.description}</p>
-                      </div>
+                      <h3 className="text-xl font-semibold text-white">{industry.title}</h3>
                     </div>
-
+                  </div>
+                  <CardContent className="p-6">
+                    <p className="text-gray-400 mb-4">{industry.description}</p>
                     <div className="space-y-2">
-                      <p className="text-sm text-gray-500 uppercase tracking-wide mb-3">Common Challenges We Solve:</p>
+                      <p className="text-sm text-gray-500 uppercase tracking-wide mb-3">Challenges We Solve:</p>
                       {industry.challenges.map((challenge, j) => (
                         <div key={j} className="flex items-start gap-2">
                           <Check className="text-brand flex-shrink-0 mt-1" size={16} />
