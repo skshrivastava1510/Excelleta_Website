@@ -142,15 +142,11 @@ export const ComparisonSection = () => {
           transition={{ delay: 0.5 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-400 mb-6">
-            Ready to see the difference for yourself?
-          </p>
-          <Button
-            className="bg-brand text-black hover:bg-brand/90 px-8 py-6 text-lg"
-            onClick={() => document.getElementById('demo-form')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Book a Demo <ArrowRight className="ml-2" size={20} />
-          </Button>
+          <a href={calendlyLink} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-[#4285F4] text-white hover:bg-[#5a9cf5] px-8 py-6 text-lg rounded-lg">
+              Book a Demo <ArrowRight className="ml-2" size={20} />
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
