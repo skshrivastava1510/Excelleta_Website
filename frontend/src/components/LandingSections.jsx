@@ -12,7 +12,7 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import {
   comparisonData, industriesData, implementationSteps,
-  testimonials, companyInfo, stats, clientLogos, companyLogo, siteImages
+  testimonials, companyInfo, stats, clientLogos, companyLogo, siteImages, calendlyLink
 } from '../data/mock';
 
 // Icon mapping
