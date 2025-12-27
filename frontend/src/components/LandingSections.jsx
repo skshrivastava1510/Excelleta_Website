@@ -70,8 +70,17 @@ export const ComparisonSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} id="why-excelleta" className="py-24 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={ref} id="why-excelleta" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={siteImages.whyUs} 
+          alt="" 
+          className="w-full h-full object-cover opacity-5"
+        />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -79,8 +88,7 @@ export const ComparisonSection = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Switch from Excel?</h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Spreadsheets served their purpose, but they were never designed for complex RFQ workflows.
-            See how a purpose-built platform transforms your operations.
+            Spreadsheets served their purpose, but they weren&apos;t designed for complex RFQ workflows.
           </p>
         </motion.div>
 
@@ -89,19 +97,19 @@ export const ComparisonSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
-          className="overflow-x-auto"
+          className="overflow-x-auto bg-black/50 backdrop-blur-sm rounded-xl border border-white/10"
         >
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-white/10">
                 <th className="text-left py-4 px-6 text-gray-400 font-medium">Dimension</th>
-                <th className="text-left py-4 px-6 text-red-400 font-medium">
+                <th className="text-left py-4 px-6 text-[#EA4335] font-medium">
                   <div className="flex items-center gap-2">
                     <AlertTriangle size={18} />
                     Excel / Google Sheets
                   </div>
                 </th>
-                <th className="text-left py-4 px-6 text-brand font-medium">
+                <th className="text-left py-4 px-6 text-[#4285F4] font-medium">
                   <div className="flex items-center gap-2">
                     <CheckCircle size={18} />
                     Excelleta Platform
