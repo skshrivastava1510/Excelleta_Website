@@ -342,6 +342,7 @@ const ProblemSection = () => {
 const HowItWorksSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const stepColors = ['#4285F4', '#EA4335', '#FBBC05', '#34A853'];
 
   return (
     <section ref={ref} className="py-24 bg-[#0a0a0a]">
@@ -362,13 +363,13 @@ const HowItWorksSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15 }}
-              className="relative"
+              className="relative bg-white/5 p-6 rounded-xl border border-white/10 hover:border-white/20 transition-colors"
             >
-              <div className="text-6xl font-bold text-brand/20 mb-4">0{step.step}</div>
+              <div className="text-5xl font-bold mb-4" style={{ color: stepColors[i], opacity: 0.3 }}>0{step.step}</div>
               <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400">{step.description}</p>
               {i < howItWorks.length - 1 && (
-                <ChevronRight className="hidden lg:block absolute top-1/2 -right-4 text-brand/30" size={32} />
+                <ChevronRight className="hidden lg:block absolute top-1/2 -right-4 text-white/20" size={32} />
               )}
             </motion.div>
           ))}
@@ -387,8 +388,17 @@ const PlatformSection = () => {
   const currentModule = platformModules.find(m => m.id === activeModule);
 
   return (
-    <section ref={ref} id="platform" className="py-24 bg-black">
-      <div className="max-w-7xl mx-auto px-6">
+    <section ref={ref} id="platform" className="py-24 bg-black relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={siteImages.platform} 
+          alt="" 
+          className="w-full h-full object-cover opacity-5"
+        />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -407,9 +417,9 @@ const PlatformSection = () => {
                 <button
                   key={module.id}
                   onClick={() => setActiveModule(module.id)}
-                  className={`w-full text-left p-4 flex items-center gap-3 transition-all ${activeModule === module.id ? 'bg-brand/20 border-l-4 border-brand' : 'bg-white/5 border-l-4 border-transparent hover:bg-white/10'}`}
+                  className={`w-full text-left p-4 flex items-center gap-3 transition-all rounded-lg ${activeModule === module.id ? 'bg-[#4285F4]/20 border-l-4 border-[#4285F4]' : 'bg-white/5 border-l-4 border-transparent hover:bg-white/10'}`}
                 >
-                  <Icon className={activeModule === module.id ? 'text-brand' : 'text-gray-500'} size={20} />
+                  <Icon className={activeModule === module.id ? 'text-[#4285F4]' : 'text-gray-500'} size={20} />
                   <span className={activeModule === module.id ? 'text-white font-medium' : 'text-gray-400'}>{module.title}</span>
                 </button>
               );
@@ -425,33 +435,33 @@ const PlatformSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="bg-white/5 border border-white/10 p-8"
+                  className="bg-white/5 border border-white/10 p-8 rounded-xl backdrop-blur-sm"
                 >
                   <h3 className="text-2xl font-bold text-white mb-4">{currentModule.title}</h3>
                   <p className="text-gray-400 text-lg mb-8">{currentModule.overview}</p>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
-                      <h4 className="text-brand font-semibold mb-4 flex items-center gap-2">
+                      <h4 className="text-[#4285F4] font-semibold mb-4 flex items-center gap-2">
                         <Layers size={18} /> Key Features
                       </h4>
                       <ul className="space-y-2">
                         {currentModule.features.map((feature, i) => (
                           <li key={i} className="flex items-start gap-2 text-gray-300">
-                            <Check className="text-brand flex-shrink-0 mt-1" size={16} />
+                            <Check className="text-[#34A853] flex-shrink-0 mt-1" size={16} />
                             {feature}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-brand font-semibold mb-4 flex items-center gap-2">
+                      <h4 className="text-[#FBBC05] font-semibold mb-4 flex items-center gap-2">
                         <Target size={18} /> Business Benefits
                       </h4>
                       <ul className="space-y-2">
                         {currentModule.benefits.map((benefit, i) => (
                           <li key={i} className="flex items-start gap-2 text-gray-300">
-                            <ArrowRight className="text-brand flex-shrink-0 mt-1" size={16} />
+                            <ArrowRight className="text-[#FBBC05] flex-shrink-0 mt-1" size={16} />
                             {benefit}
                           </li>
                         ))}
