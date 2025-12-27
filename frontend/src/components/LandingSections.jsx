@@ -20,21 +20,21 @@ const iconMap = {
   Car, Factory, Wrench, Building2
 };
 
-// Client Logos Section
+// Client Logos Section - Larger and More Visible
 export const ClientLogosSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 bg-black border-y border-white/10">
+    <section ref={ref} className="py-20 bg-black border-y border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">Trusted By Leading Manufacturers</p>
-          <h3 className="text-2xl font-semibold text-white">Our Valued Clients</h3>
+          <p className="text-[#4285F4] text-sm uppercase tracking-wider mb-3 font-medium">Trusted By Leading Manufacturers</p>
+          <h3 className="text-3xl font-bold text-white">Our Valued Clients</h3>
         </motion.div>
 
         <motion.div
@@ -43,17 +43,17 @@ export const ClientLogosSection = () => {
           transition={{ delay: 0.2 }}
           className="relative overflow-hidden"
         >
-          {/* Scrolling logos container */}
-          <div className="flex animate-scroll gap-12 items-center">
+          {/* Scrolling logos container - Larger */}
+          <div className="flex animate-scroll gap-8 items-center py-4">
             {[...clientLogos, ...clientLogos].map((client, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 h-16 w-32 bg-white/5 rounded-lg p-3 flex items-center justify-center hover:bg-white/10 transition-colors group"
+                className="flex-shrink-0 h-24 w-44 bg-white/10 rounded-xl p-4 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group border border-white/5 hover:border-[#4285F4]/30"
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="max-h-full max-w-full object-contain filter brightness-100 group-hover:brightness-110 transition-all duration-300"
                 />
               </div>
             ))}
