@@ -465,20 +465,20 @@ frontend:
         agent: "testing"
         comment: "✅ PASSED - Footer social links implemented correctly. LinkedIn: https://www.linkedin.com/company/excelleta/, Facebook: https://www.facebook.com/people/Excelleta-Tech/61550919895618/, WhatsApp: https://wa.me/+917290076170. All links functional and properly formatted."
 
-  - task: "Dark Theme with Teal Accent"
+  - task: "Modernized Landing Page Testing"
     implemented: true
     working: true
-    file: "/app/frontend/src/styles/landing.css"
+    file: "/app/frontend/src/pages/LandingPage.jsx"
     stuck_count: 0
-    priority: "medium"
+    priority: "high"
     needs_retesting: false
     status_history:
       - working: "NA"
         agent: "testing"
-        comment: "Initial testing required - Dark theme (#000000 background) with teal/cyan accent (#00FFD1)"
+        comment: "Testing modernized Excelleta Tech landing page with new Google color scheme, removed Download Overview Deck button, Calendly integration, modern design elements"
       - working: true
         agent: "testing"
-        comment: "✅ PASSED - Dark theme implemented correctly. Body background: rgb(0, 0, 0) (pure black). Found 182 elements with teal/cyan brand color (#00FFD1). Consistent dark theme throughout the application."
+        comment: "✅ PASSED - Modernized landing page fully functional. NEW COLOR SCHEME: 123 elements with Google blue (#4285F4), 14 with red accent. HERO SECTION: Download Overview Deck properly removed, Badge present, 3 Book a Demo buttons. CALENDLY INTEGRATION: 4 Calendly links all opening in new tabs. MODERN DESIGN: 82 rounded elements, 81 hover effects. DEMO FORM: Calendly booking present, traditional forms minimized. MOBILE: Fully responsive with functional menu. All modernization requirements met."
 
   - task: "Navigation and Interactions"
     implemented: true
