@@ -45,8 +45,8 @@ export const clientLogos = [
 ];
 
 export const heroData = {
-  headline: "Digitize Your RFQ & Costing Operations",
-  subtext: "Replace scattered Excel files and email chaos with one unified platform. Faster quotes, accurate costing, complete traceability—built for manufacturing.",
+  headline: "Digitize Your RFQ & Quotation Operations",
+  subtext: "Replace scattered Excel files and email chaos with one unified platform. Faster quotes, accurate pricing, complete traceability—built for manufacturing.",
   primaryCta: "Book a Demo",
   trustBadges: [
     "Trusted by 50+ manufacturers",
