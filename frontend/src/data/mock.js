@@ -159,13 +159,13 @@ export const platformModules = [
     ]
   },
   {
-    id: "costing",
-    title: "Costing Engine & Templates",
+    id: "quoting",
+    title: "Smart Quote Engine",
     icon: "Calculator",
-    overview: "Automated cost estimation using norms libraries, MHR rates, and intelligent costing methods.",
+    overview: "Automated quote generation using norms libraries, MHR rates, and intelligent pricing methods.",
     features: [
-      "Multiple costing methods (Internal, Customer, Tooling)",
-      "Auto-cost estimation from BOM/TE sheet",
+      "Multiple quote methods (Internal, Customer, Tooling)",
+      "Auto-quote generation from BOM/TE sheet",
       "Machine Hour Rate (MHR) libraries",
       "Surface treatment and process rate cards",
       "Norms manager for labor, tooling, packing",
@@ -173,6 +173,11 @@ export const platformModules = [
     ],
     benefits: [
       "Quote prep time cut by 50-70%",
+      "Quote accuracy improved to 100%",
+      "Margin optimization with profitability insights",
+      "Standardized pricing across all plants"
+    ]
+  },
       "Costing accuracy improved to 99%+",
       "Margin optimization with profitability insights",
       "Standardized costing across all plants"
