@@ -107,12 +107,13 @@ export const howItWorks = [
 ];
 
 export const problemData = {
-  heading: "Excel and Email Are Holding You Back",
+  heading: "Still Stuck in Spreadsheet Chaos?",
+  subheading: "Manual processes are costing you deals",
   painPoints: [
-    { icon: "FileSpreadsheet", text: "Multiple file versions create confusion and costly errors" },
-    { icon: "Clock", text: "Manual costing takes days instead of hours" },
-    { icon: "AlertTriangle", text: "No audit trail—who changed what and when?" },
-    { icon: "Eye", text: "Management lacks real-time visibility into RFQ pipeline" }
+    { icon: "FileSpreadsheet", text: "Multiple file versions create confusion and costly errors", image: "excelChaos" },
+    { icon: "Clock", text: "Manual quote generation takes days instead of hours", image: "frustrated" },
+    { icon: "AlertTriangle", text: "No audit trail—who changed what and when?", image: "solution" },
+    { icon: "Eye", text: "Management lacks real-time visibility into RFQ pipeline", image: "automation" }
   ]
 };
 
