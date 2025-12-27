@@ -12,12 +12,56 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import {
   comparisonData, industriesData, implementationSteps,
-  testimonials, companyInfo, stats
+  testimonials, companyInfo, stats, clientLogos, companyLogo, siteImages
 } from '../data/mock';
 
 // Icon mapping
 const iconMap = {
   Car, Factory, Wrench, Building2
+};
+
+// Client Logos Section
+export const ClientLogosSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section ref={ref} className="py-16 bg-black border-y border-white/10">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-10"
+        >
+          <p className="text-gray-400 text-sm uppercase tracking-wider mb-2">Trusted By Leading Manufacturers</p>
+          <h3 className="text-2xl font-semibold text-white">Our Valued Clients</h3>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.2 }}
+          className="relative overflow-hidden"
+        >
+          {/* Scrolling logos container */}
+          <div className="flex animate-scroll gap-12 items-center">
+            {[...clientLogos, ...clientLogos].map((client, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 h-16 w-32 bg-white/5 rounded-lg p-3 flex items-center justify-center hover:bg-white/10 transition-colors group"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 // Comparison Section (Why Excelleta vs Excel)
