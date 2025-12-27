@@ -15,7 +15,7 @@ import { Textarea } from '../components/ui/textarea';
 import {
   heroData, benefitBlocks, howItWorks, problemData, platformModules,
   comparisonData, industriesData, implementationSteps, testimonials,
-  companyInfo, navLinks, stats, companyLogo, clientLogos, siteImages
+  companyInfo, navLinks, stats, companyLogo, clientLogos, siteImages, calendlyLink
 } from '../data/mock';
 import '../styles/landing.css';
 
