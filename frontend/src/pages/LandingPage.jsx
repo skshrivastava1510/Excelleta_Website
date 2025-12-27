@@ -76,16 +76,14 @@ const Navigation = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'}`}>
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-brand flex items-center justify-center">
-            <span className="text-black font-bold text-xl">E</span>
-          </div>
-          <div>
-            <span className="text-white text-xl font-semibold">Excelleta</span>
-            <span className="text-gray-500 text-xs block -mt-1">Tech Pvt. Ltd.</span>
-          </div>
-        </div>
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-3">
+          <img 
+            src={companyLogo} 
+            alt="Excelleta Tech" 
+            className="h-12 md:h-14 w-auto object-contain"
+          />
+        </a>
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
