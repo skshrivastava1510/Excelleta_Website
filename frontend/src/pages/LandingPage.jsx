@@ -149,7 +149,16 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden bg-black pt-20">
-      <div className="absolute inset-0 grid-background opacity-20" />
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={siteImages.hero} 
+          alt="" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70" />
+      </div>
+      <div className="absolute inset-0 grid-background opacity-10" />
 
       <div className="max-w-7xl mx-auto px-6 pt-20 lg:pt-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
