@@ -134,15 +134,16 @@ export const ComparisonSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.1 * i }}
-                  className="border-b border-white/5 hover:bg-white/5 transition-colors"
+                  className="border-b border-white/5 hover:bg-[#4285F4]/5 transition-colors group"
                 >
                   <td className="py-4 px-6 text-white font-medium">{row.category}</td>
-                  <td className="py-4 px-6 text-gray-400">{row.excel}</td>
-                  <td className="py-4 px-6 text-gray-300">{row.excelleta}</td>
+                  <td className="py-4 px-6 text-gray-500 group-hover:text-gray-400 transition-colors">{row.excel}</td>
+                  <td className="py-4 px-6 text-[#34A853] font-medium">{row.excelleta}</td>
                 </motion.tr>
               ))}
             </tbody>
           </table>
+          </motion.div>
         </motion.div>
 
         {/* Bottom CTA */}
@@ -153,7 +154,7 @@ export const ComparisonSection = () => {
           className="mt-12 text-center"
         >
           <a href={calendlyLink} target="_blank" rel="noopener noreferrer">
-            <Button className="bg-[#4285F4] text-white hover:bg-[#5a9cf5] px-8 py-6 text-lg rounded-lg">
+            <Button className="bg-[#4285F4] text-white hover:bg-[#5a9cf5] px-8 py-6 text-lg rounded-xl shadow-lg shadow-[#4285F4]/20 hover:shadow-[#4285F4]/40 transition-all">
               Book a Demo <ArrowRight className="ml-2" size={20} />
             </Button>
           </a>
