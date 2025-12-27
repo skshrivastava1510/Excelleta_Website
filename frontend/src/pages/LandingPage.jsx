@@ -233,6 +233,7 @@ const HeroSection = () => {
 const BenefitsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const benefitColors = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#4285F4'];
 
   return (
     <section ref={ref} className="py-24 bg-[#0a0a0a]">
@@ -256,10 +257,10 @@ const BenefitsSection = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
-                <Card className="bg-white/5 border-white/10 hover:border-brand/50 transition-all duration-300 h-full">
+                <Card className="bg-white/5 border-white/10 hover:border-white/30 transition-all duration-300 h-full rounded-xl">
                   <CardContent className="p-6 text-center">
-                    <div className="w-14 h-14 mx-auto bg-brand/20 flex items-center justify-center mb-4">
-                      <Icon className="text-brand" size={28} />
+                    <div className="w-14 h-14 mx-auto flex items-center justify-center mb-4 rounded-xl" style={{ backgroundColor: `${benefitColors[i]}20` }}>
+                      <Icon style={{ color: benefitColors[i] }} size={28} />
                     </div>
                     <h3 className="text-white font-semibold text-lg mb-2">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm">{benefit.description}</p>
