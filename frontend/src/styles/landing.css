@@ -36,9 +36,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Brand Color Utility */
+/* Brand Color Utilities */
 .text-brand {
   color: var(--brand-primary);
+}
+
+.text-brand-red {
+  color: var(--brand-red);
+}
+
+.text-brand-yellow {
+  color: var(--brand-yellow);
+}
+
+.text-brand-green {
+  color: var(--brand-green);
 }
 
 .bg-brand {
@@ -47,6 +59,18 @@ body {
 
 .border-brand {
   border-color: var(--brand-primary);
+}
+
+/* Multi-color gradient accent */
+.gradient-accent {
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-yellow) 50%, var(--brand-green) 100%);
+}
+
+.gradient-accent-text {
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-yellow) 50%, var(--brand-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Grid Background Pattern */
