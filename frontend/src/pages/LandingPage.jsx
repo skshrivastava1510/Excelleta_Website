@@ -315,57 +315,90 @@ const ProblemSection = () => {
       </motion.div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{problemData.heading}</h2>
-            <p className="text-gray-400 text-lg mb-8">
-              Most manufacturing companies still manage RFQs, BOMs, and costing in scattered Excel files and email threads.
-              This leads to version chaos, missed deadlines, and costly errors that directly impact profitability.
-            </p>
-            <div className="space-y-4">
-              {problemData.painPoints.map((point, i) => {
-                const Icon = iconMap[point.icon];
-                return (
-                  <motion.div
-                    key={i}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{problemData.heading}</h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">{problemData.subheading}</p>
+        </motion.div>
+
+        {/* Pain Points Grid with Images */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {problemData.painPoints.map((point, i) => {
+            const Icon = iconMap[point.icon];
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group"
+              >
+                <div className="relative h-40 rounded-t-xl overflow-hidden">
+                  <img 
+                    src={problemImages[i]} 
+                    alt="" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute top-4 left-4 w-10 h-10 bg-[#EA4335]/80 rounded-lg flex items-center justify-center">
+                    <Icon className="text-white" size={20} />
+                  </div>
+                </div>
+                <div className="p-4 bg-[#EA4335]/10 border border-[#EA4335]/20 border-t-0 rounded-b-xl">
+                  <p className="text-gray-300 text-sm">{point.text}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Solution Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4 }}
+          className="bg-gradient-to-br from-[#4285F4]/10 to-[#34A853]/10 border border-[#4285F4]/20 rounded-2xl p-8 md:p-12"
+        >
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">The Excelleta Difference</h3>
+              <div className="space-y-4">
+                {[
+                  { text: "One centralized platform for all RFQ data", color: "#4285F4" },
+                  { text: "Smart auto-quote generation with norms libraries", color: "#34A853" },
+                  { text: "Built-in approval workflows and audit trails", color: "#FBBC05" },
+                  { text: "Real-time dashboards for management visibility", color: "#EA4335" },
+                  { text: "Seamless ERP integration—no manual re-entry", color: "#4285F4" }
+                ].map((item, i) => (
+                  <motion.div 
+                    key={i} 
+                    className="flex items-center gap-3"
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-start gap-4 p-4 bg-red-500/10 border border-red-500/20"
+                    transition={{ delay: 0.5 + i * 0.1 }}
                   >
-                    <Icon className="text-red-400 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-300">{point.text}</span>
+                    <CheckCircle style={{ color: item.color }} className="flex-shrink-0" size={22} />
+                    <span className="text-gray-300">{item.text}</span>
                   </motion.div>
-                );
-              })}
+                ))}
+              </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            className="bg-gradient-to-br from-brand/10 to-transparent border border-brand/20 p-8"
-          >
-            <h3 className="text-2xl font-bold text-white mb-6">The Excelleta Difference</h3>
-            <div className="space-y-4">
-              {[
-                "One centralized platform for all RFQ data",
-                "Automated costing with norms libraries",
-                "Built-in approval workflows and audit trails",
-                "Real-time dashboards for management visibility",
-                "ERP integration—no manual re-entry"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle className="text-brand flex-shrink-0" size={20} />
-                  <span className="text-gray-300">{item}</span>
-                </div>
-              ))}
+            <div className="relative">
+              <img 
+                src={siteImages.dashboard} 
+                alt="Excelleta Dashboard" 
+                className="rounded-xl shadow-2xl"
+              />
+              <div className="absolute -bottom-4 -right-4 bg-[#34A853] text-white px-4 py-2 rounded-lg font-semibold">
+                Smart Automation
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
