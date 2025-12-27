@@ -374,50 +374,120 @@ export const ImplementationSection = () => {
   );
 };
 
-// Testimonials Section
+// Testimonials Section with 3D View
 export const TestimonialsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeIndex, setActiveIndex] = useState(0);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y1 = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-30, 30]);
 
   const nextTestimonial = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
   const prevTestimonial = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
+  const cardColors = ['#4285F4', '#34A853', '#EA4335'];
+
   return (
-    <section ref={ref} className="py-24 bg-[#0a0a0a]">
-      <div className="max-w-5xl mx-auto px-6">
+    <section ref={ref} className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      {/* 3D Floating Elements */}
+      <motion.div style={{ y: y1 }} className="absolute top-20 left-20 w-32 h-32 bg-[#4285F4]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-20 right-20 w-48 h-48 bg-[#34A853]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y1 }} className="absolute top-1/2 left-10 w-4 h-24 bg-[#FBBC05]/30 rounded-full" />
+      <motion.div style={{ y: y2 }} className="absolute top-1/3 right-10 w-4 h-24 bg-[#EA4335]/30 rounded-full" />
+      
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What Our Customers Say</h2>
+          <p className="text-gray-400">Trusted by manufacturing leaders across industries</p>
         </motion.div>
 
-        <div className="relative">
+        {/* 3D Cards Container */}
+        <div className="relative" style={{ perspective: 1000 }}>
           <motion.div
             key={activeIndex}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white/5 border border-white/10 p-8 md:p-12 relative"
+            initial={{ opacity: 0, rotateY: 20, x: 50 }}
+            animate={{ opacity: 1, rotateY: 0, x: 0 }}
+            exit={{ opacity: 0, rotateY: -20, x: -50 }}
+            transition={{ duration: 0.6, type: "spring" }}
+            className="relative"
           >
-            <Quote className="absolute top-6 left-6 text-brand/30" size={48} />
-            <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 relative z-10">
-              &ldquo;{testimonials[activeIndex].quote}&rdquo;
-            </blockquote>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-brand/20 flex items-center justify-center text-brand font-bold">
-                {testimonials[activeIndex].author.charAt(0)}
+            <div 
+              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl"
+              style={{ boxShadow: `0 25px 50px -12px ${cardColors[activeIndex]}30` }}
+            >
+              {/* Quote Icon */}
+              <div 
+                className="absolute -top-6 left-8 w-12 h-12 rounded-xl flex items-center justify-center"
+                style={{ backgroundColor: cardColors[activeIndex] }}
+              >
+                <Quote className="text-white" size={24} />
               </div>
-              <div>
-                <div className="text-white font-semibold">{testimonials[activeIndex].author}</div>
-                <div className="text-gray-400 text-sm">{testimonials[activeIndex].role}</div>
+              
+              <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 mt-4">
+                &ldquo;{testimonials[activeIndex].quote}&rdquo;
+              </blockquote>
+              
+              <div className="flex items-center gap-4">
+                <div 
+                  className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl"
+                  style={{ backgroundColor: `${cardColors[activeIndex]}40` }}
+                >
+                  {testimonials[activeIndex].author.charAt(0)}
+                </div>
+                <div>
+                  <div className="text-white font-semibold text-lg">{testimonials[activeIndex].author}</div>
+                  <div className="text-gray-400">{testimonials[activeIndex].role}</div>
+                </div>
               </div>
+              
+              {/* Decorative line */}
+              <div 
+                className="absolute bottom-0 left-0 right-0 h-1 rounded-b-3xl"
+                style={{ backgroundColor: cardColors[activeIndex] }}
+              />
             </div>
           </motion.div>
 
-          <div className="flex justify-center gap-4 mt-8">
+          {/* Navigation */}
+          <div className="flex justify-center items-center gap-6 mt-10">
+            <button
+              onClick={prevTestimonial}
+              aria-label="Previous testimonial"
+              className="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#4285F4] hover:border-[#4285F4] transition-all rounded-xl"
+            >
+              <ChevronLeft size={24} strokeWidth={2} />
+            </button>
+            
+            <div className="flex items-center gap-3">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-8' : ''}`}
+                  style={{ backgroundColor: i === activeIndex ? cardColors[i] : 'rgba(255,255,255,0.3)' }}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={nextTestimonial}
+              aria-label="Next testimonial"
+              className="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#4285F4] hover:border-[#4285F4] transition-all rounded-xl"
+            >
+              <ChevronRight size={24} strokeWidth={2} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
             <button
               onClick={prevTestimonial}
               aria-label="Previous testimonial"
