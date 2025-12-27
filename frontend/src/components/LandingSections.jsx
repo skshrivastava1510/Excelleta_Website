@@ -298,7 +298,7 @@ const AnimatedCounter = ({ value, suffix, label, inView, color = '#4285F4' }) =>
 
   return (
     <div className="text-center">
-      <div className="text-5xl md:text-6xl font-bold text-brand mb-2">
+      <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color }}>
         {count}{suffix}
       </div>
       <div className="text-gray-400 text-lg">{label}</div>
