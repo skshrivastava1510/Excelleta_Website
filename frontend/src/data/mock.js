@@ -45,8 +45,8 @@ export const clientLogos = [
 ];
 
 export const heroData = {
-  headline: "Digitize Your RFQ & Quotation Operations",
-  subtext: "Replace scattered Excel files and email chaos with one unified platform. Faster quotes, accurate pricing, complete traceability—built for manufacturing.",
+  headline: "Transform Your RFQ & Quotation Process with Smart Automation",
+  subtext: "Stop losing deals to slow quotes. Excelleta automates your entire RFQ-to-Quote workflow—faster turnaround, zero errors, complete visibility.",
   primaryCta: "Book a Demo",
   trustBadges: [
     "Trusted by 50+ manufacturers",
