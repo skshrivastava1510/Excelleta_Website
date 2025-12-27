@@ -68,17 +68,18 @@ export const ClientLogosSection = () => {
 export const ComparisonSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [5, 0, -5]);
 
   return (
     <section ref={ref} id="why-excelleta" className="py-24 bg-[#0a0a0a] relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={siteImages.whyUs} 
-          alt="" 
-          className="w-full h-full object-cover opacity-5"
-        />
-      </div>
+      {/* 3D Floating Elements */}
+      <motion.div style={{ y: y1 }} className="absolute top-20 left-10 w-40 h-40 bg-[#EA4335]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-20 right-10 w-60 h-60 bg-[#4285F4]/10 rounded-full blur-3xl" />
+      <motion.div style={{ y: y1 }} className="absolute top-1/3 right-20 w-20 h-20 border-2 border-[#FBBC05]/20 rounded-xl rotate-12" />
+      <motion.div style={{ y: y2 }} className="absolute bottom-1/3 left-20 w-16 h-16 border-2 border-[#34A853]/20 rounded-full" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -92,32 +93,41 @@ export const ComparisonSection = () => {
           </p>
         </motion.div>
 
-        {/* Comparison Table */}
+        {/* 3D Comparison Table */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2 }}
-          className="overflow-x-auto bg-black/50 backdrop-blur-sm rounded-xl border border-white/10"
+          initial={{ opacity: 0, y: 50, rotateX: 10 }}
+          animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          style={{ perspective: 1000 }}
+          className="overflow-x-auto"
         >
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left py-4 px-6 text-gray-400 font-medium">Dimension</th>
-                <th className="text-left py-4 px-6 text-[#EA4335] font-medium">
-                  <div className="flex items-center gap-2">
-                    <AlertTriangle size={18} />
-                    Excel / Google Sheets
-                  </div>
-                </th>
-                <th className="text-left py-4 px-6 text-[#4285F4] font-medium">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle size={18} />
-                    Excelleta Platform
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
+          <motion.div 
+            style={{ rotateX }}
+            className="bg-black/70 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl shadow-[#4285F4]/10"
+          >
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="border-b border-white/10 bg-white/5">
+                  <th className="text-left py-5 px-6 text-gray-400 font-semibold text-lg">Dimension</th>
+                  <th className="text-left py-5 px-6 font-semibold text-lg">
+                    <div className="flex items-center gap-2 text-[#EA4335]">
+                      <div className="w-8 h-8 bg-[#EA4335]/20 rounded-lg flex items-center justify-center">
+                        <AlertTriangle size={18} />
+                      </div>
+                      Excel / Google Sheets
+                    </div>
+                  </th>
+                  <th className="text-left py-5 px-6 font-semibold text-lg">
+                    <div className="flex items-center gap-2 text-[#4285F4]">
+                      <div className="w-8 h-8 bg-[#4285F4]/20 rounded-lg flex items-center justify-center">
+                        <CheckCircle size={18} />
+                      </div>
+                      Excelleta Platform
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
               {comparisonData.dimensions.map((row, i) => (
                 <motion.tr
                   key={i}
