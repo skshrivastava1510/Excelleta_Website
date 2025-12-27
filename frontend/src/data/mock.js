@@ -178,11 +178,6 @@ export const platformModules = [
       "Standardized pricing across all plants"
     ]
   },
-      "Costing accuracy improved to 99%+",
-      "Margin optimization with profitability insights",
-      "Standardized costing across all plants"
-    ]
-  },
   {
     id: "workflow",
     title: "Workflow & Approvals",
@@ -191,7 +186,7 @@ export const platformModules = [
     features: [
       "Multi-level approval workflows",
       "Role-based access control (RBAC)",
-      "Cost versioning with side-by-side comparison",
+      "Quote versioning with side-by-side comparison",
       "Complete audit trail and history",
       "Automated notifications at each stage",
       "Compliance-ready documentation"
@@ -211,7 +206,7 @@ export const platformModules = [
     features: [
       "RFQ funnel and conversion ratio tracking",
       "RFQ aging and delay reports",
-      "Cost trend analysis across customers/parts",
+      "Quote trend analysis across customers/parts",
       "Supplier performance scorecards",
       "KAM (Key Account Manager) metrics",
       "Custom report builder with export"
