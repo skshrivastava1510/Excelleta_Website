@@ -500,84 +500,94 @@ export const AboutSection = () => {
 export const DemoFormSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    designation: '',
-    country: 'India',
-    notes: ''
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Store in localStorage (mock)
-    const demos = JSON.parse(localStorage.getItem('demoRequests') || '[]');
-    demos.push({ ...formData, timestamp: new Date().toISOString() });
-    localStorage.setItem('demoRequests', JSON.stringify(demos));
-    setSubmitted(true);
-    setFormData({ name: '', company: '', email: '', phone: '', designation: '', country: 'India', notes: '' });
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <section ref={ref} id="demo-form" className="py-24 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Book a Demo</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your RFQ Process?</h2>
             <p className="text-gray-400 text-lg mb-8">
-              See how Excelleta can transform your RFQ-to-Costing process. Our team will walk you through
-              the platform and answer your specific questions.
+              Book a personalized demo with our manufacturing experts. See how Excelleta can streamline your costing and quotation workflow.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand/20 flex items-center justify-center flex-shrink-0">
-                  <Calendar className="text-brand" size={24} />
+                <div className="w-12 h-12 bg-[#4285F4]/20 flex items-center justify-center flex-shrink-0 rounded-lg">
+                  <Calendar className="text-[#4285F4]" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Personalized Walkthrough</h4>
-                  <p className="text-gray-400 text-sm">30-45 minute session tailored to your requirements</p>
+                  <h4 className="text-white font-semibold">30-Minute Demo</h4>
+                  <p className="text-gray-400 text-sm">Tailored walkthrough of the platform</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand/20 flex items-center justify-center flex-shrink-0">
-                  <Users className="text-brand" size={24} />
+                <div className="w-12 h-12 bg-[#34A853]/20 flex items-center justify-center flex-shrink-0 rounded-lg">
+                  <Users className="text-[#34A853]" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Domain Experts</h4>
-                  <p className="text-gray-400 text-sm">Speak with people who understand manufacturing</p>
+                  <h4 className="text-white font-semibold">Manufacturing Experts</h4>
+                  <p className="text-gray-400 text-sm">Speak with people who understand your industry</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand/20 flex items-center justify-center flex-shrink-0">
-                  <Clock className="text-brand" size={24} />
+                <div className="w-12 h-12 bg-[#FBBC05]/20 flex items-center justify-center flex-shrink-0 rounded-lg">
+                  <CheckCircle className="text-[#FBBC05]" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Quick Response</h4>
-                  <p className="text-gray-400 text-sm">We&apos;ll reach out within 1 business day</p>
+                  <h4 className="text-white font-semibold">No Obligation</h4>
+                  <p className="text-gray-400 text-sm">Just a friendly conversation about your needs</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-6 bg-white/5 border border-white/10">
+            {/* WhatsApp Option */}
+            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
               <p className="text-gray-400 text-sm mb-4">Prefer to chat directly?</p>
               <a
                 href={`https://wa.me/${companyInfo.whatsapp}?text=Hi, I'd like to learn more about Excelleta RFQ Platform`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 hover:bg-green-700 transition-colors"
+                className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3 rounded-lg hover:bg-[#20bd5a] transition-colors"
+              >
+                <MessageCircle size={20} />
+                Chat on WhatsApp
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right - Calendly Embed */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            className="bg-white rounded-2xl overflow-hidden"
+          >
+            <div className="p-8 text-center">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Schedule Your Demo</h3>
+              <p className="text-gray-600 mb-6">Choose a time that works best for you</p>
+              <a 
+                href={calendlyLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#4285F4] text-white px-8 py-4 rounded-lg hover:bg-[#5a9cf5] transition-colors text-lg font-medium"
+              >
+                <Calendar size={24} />
+                Book a Demo on Calendly
+                <ArrowRight size={20} />
+              </a>
+              <p className="text-gray-500 text-sm mt-6">Free 30-minute consultation • No commitment required</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
               >
                 <MessageCircle size={20} />
                 Chat on WhatsApp
