@@ -41,14 +41,13 @@ export const clientLogos = [
 ];
 
 export const heroData = {
-  headline: "Replace Scattered RFQs & Excel Chaos with One Unified Platform",
-  subtext: "Excelleta digitizes your entire RFQ-to-Costing journey. Centralized data, automated workflows, traceable approvals—all in one place. Purpose-built for auto-component and manufacturing companies.",
+  headline: "Digitize Your RFQ & Costing Operations",
+  subtext: "Replace scattered Excel files and email chaos with one unified platform. Faster quotes, accurate costing, complete traceability—built for manufacturing.",
   primaryCta: "Book a Demo",
-  secondaryCta: "Download Overview Deck",
   trustBadges: [
-    "Trusted by leading auto-component manufacturers",
-    "50-70% faster quotation turnaround",
-    "Recognized by CII DigiTech for innovation"
+    "Trusted by 50+ manufacturers",
+    "50-70% faster quotations",
+    "CII DigiTech recognized"
   ]
 };
 
