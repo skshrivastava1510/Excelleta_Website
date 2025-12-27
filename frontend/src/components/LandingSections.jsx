@@ -488,41 +488,15 @@ export const TestimonialsSection = () => {
     </section>
   );
 };
-            <button
-              onClick={prevTestimonial}
-              aria-label="Previous testimonial"
-              className="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:border-brand hover:text-brand transition-colors"
-            >
-              <ChevronLeft size={24} strokeWidth={2} />
-            </button>
-            <div className="flex items-center gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                  className={`w-3 h-3 rounded-full transition-colors ${i === activeIndex ? 'bg-brand' : 'bg-white/30 hover:bg-white/50'}`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={nextTestimonial}
-              aria-label="Next testimonial"
-              className="w-12 h-12 border border-white/20 flex items-center justify-center text-white hover:border-brand hover:text-brand transition-colors"
-            >
-              <ChevronRight size={24} strokeWidth={2} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
-// About Section
+// About Section with Parallax
 export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y1 = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
   const valueColors = ['#4285F4', '#EA4335', '#FBBC05', '#34A853'];
 
