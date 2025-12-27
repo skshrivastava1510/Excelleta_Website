@@ -59,17 +59,17 @@ export const benefitBlocks = [
   {
     icon: "Zap",
     title: "Faster RFQ Turnaround",
-    description: "Reduce quotation time from days to hours with automated costing and streamlined approvals."
+    description: "Reduce quotation time from days to hours with automated pricing and streamlined approvals."
   },
   {
     icon: "Database",
     title: "Centralized Data",
-    description: "One platform for all RFQs, BOMs, costing, and customer data—no more scattered spreadsheets."
+    description: "One platform for all RFQs, BOMs, quotes, and customer data—no more scattered spreadsheets."
   },
   {
     icon: "Target",
-    title: "Improved Accuracy",
-    description: "AI-driven costing and norms libraries reduce errors from 15-20% to under 2%."
+    title: "Auto Quote Generation",
+    description: "Intelligent quote engine with norms libraries generates accurate quotes automatically."
   },
   {
     icon: "Eye",
