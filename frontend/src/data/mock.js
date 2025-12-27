@@ -1,5 +1,36 @@
 // Excelleta Tech Website Data
 
+// Company Logo
+export const companyLogo = "https://customer-assets.emergentagent.com/job_pricemetal/artifacts/5fi4rhzg_Final%20logo02.png";
+
+// Professional Images for visual sections
+export const siteImages = {
+  hero: "https://images.pexels.com/photos/1145434/pexels-photo-1145434.jpeg?auto=compress&cs=tinysrgb&w=1920",
+  manufacturing: "https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg?auto=compress&cs=tinysrgb&w=800",
+  cncMachine: "https://images.pexels.com/photos/50691/drill-milling-milling-machine-drilling-50691.jpeg?auto=compress&cs=tinysrgb&w=800",
+  analytics: "https://images.pexels.com/photos/577195/pexels-photo-577195.jpeg?auto=compress&cs=tinysrgb&w=800",
+  teamwork: "https://images.pexels.com/photos/936135/pexels-photo-936135.jpeg?auto=compress&cs=tinysrgb&w=800",
+  collaboration: "https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg?auto=compress&cs=tinysrgb&w=800",
+  autoParts: "https://images.pexels.com/photos/7568433/pexels-photo-7568433.jpeg?auto=compress&cs=tinysrgb&w=800",
+  factory: "https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=800"
+};
+
+// Client Logos from existing website
+export const clientLogos = [
+  { name: "Rockman Industries", logo: "https://www.excelleta.tech/assets/images/rockman.jpg" },
+  { name: "Kaitaing", logo: "https://www.excelleta.tech/assets/images/kataing.jpg" },
+  { name: "Bony Polymers", logo: "https://www.excelleta.tech/assets/images/bony.jpg" },
+  { name: "Mega Autocomp", logo: "https://www.excelleta.tech/assets/images/mega1.jpg" },
+  { name: "National Engineering", logo: "https://www.excelleta.tech/assets/images/national.jpg" },
+  { name: "MMT", logo: "https://www.excelleta.tech/assets/images/mmt.jpg" },
+  { name: "Abhijay Industries", logo: "https://www.excelleta.tech/assets/images/abhijay.jpg" },
+  { name: "Mega Industries", logo: "https://www.excelleta.tech/assets/images/mega.jpg" },
+  { name: "POL", logo: "https://www.excelleta.tech/assets/images/pol.jpg" },
+  { name: "Velangi", logo: "https://www.excelleta.tech/assets/images/velangi.jpg" },
+  { name: "Dhanajay", logo: "https://www.excelleta.tech/assets/images/dhanajay.jpg" },
+  { name: "Brand Partner", logo: "https://www.excelleta.tech/assets/images/brand-2.jpg" }
+];
+
 export const heroData = {
   headline: "Replace Scattered RFQs & Excel Chaos with One Unified Platform",
   subtext: "Excelleta digitizes your entire RFQ-to-Costing journey. Centralized data, automated workflows, traceable approvals—all in one place. Purpose-built for auto-component and manufacturing companies.",
