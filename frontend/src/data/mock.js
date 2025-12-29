@@ -378,7 +378,7 @@ export const companyInfo = {
 
 export const navLinks = [
   { label: "Platform", href: "#platform" },
-  { label: "Solutions", href: "#solutions" },
+  { label: "Solutions", href: "#platform" },
   { label: "Why Excelleta", href: "#why-excelleta" },
   { label: "About", href: "#about" }
 ];
