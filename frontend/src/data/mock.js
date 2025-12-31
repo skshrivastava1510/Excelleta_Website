@@ -387,5 +387,5 @@ export const stats = [
   { value: 50, suffix: "%", label: "Faster Quotation" },
   { value: 100, suffix: "%", label: "Quote Accuracy" },
   { value: 100, suffix: "%", label: "Real-time Dashboard" },
-  { value: 60, suffix: "%", label: "Less Rework" }
+  { value: 100, suffix: "%", label: "Less Rework" }
 ];

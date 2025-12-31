@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URL=${MONGO_URL:-mongodb://localhost:27017}
+      - DB_NAME=${DB_NAME:-excelleta_db}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000}
+    volumes:
+      - ./backend:/app
+    command: uvicorn server:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - excelleta-network
+
+  # Uncomment if you want to run MongoDB locally
+  # mongodb:
+  #   image: mongo:7
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongodb_data:/data/db
+  #   networks:
+  #     - excelleta-network
+
+networks:
+  excelleta-network:
+    driver: bridge
+
+# volumes:
+#   mongodb_data:
+
