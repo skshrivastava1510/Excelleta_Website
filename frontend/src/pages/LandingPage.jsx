@@ -431,7 +431,7 @@ const HowItWorksSection = () => {
               transition={{ delay: i * 0.15 }}
               className="relative bg-white/5 p-6 rounded-xl border border-white/10 hover:border-white/20 transition-colors"
             >
-              <div className="text-5xl font-bold mb-4" style={{ color: stepColors[i], opacity: 0.3 }}>0{step.step}</div>
+              <div className="text-4xl font-bold mb-4" style={{ color: stepColors[i], opacity: 0.3 }}>{step.step}</div>
               <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
               <p className="text-gray-400">{step.description}</p>
               {i < howItWorks.length - 1 && (

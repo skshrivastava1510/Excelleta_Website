@@ -12,13 +12,48 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import {
   comparisonData, industriesData, implementationSteps,
-  testimonials, companyInfo, stats, clientLogos, companyLogo, siteImages, calendlyLink
+  testimonials, companyInfo, stats, companyLogo, siteImages, calendlyLink
 } from '../data/mock';
+
+import rockman from "../images/1.jpg";
+import kataing from "../images/2.jpg";
+import bony from "../images/3.jpg";
+import mega1 from "../images/4.jpg";
+import mmt from "../images/5.jpg";
+import abhijay from "../images/6.jpg";
+import mega from "../images/7.jpg";
+import pol from "../images/8.jpg";
+import dhanajay from "../images/9.jpg";
+import brand2 from "../images/10.jpg";
+import brand3 from "../images/11.jpg";
+import brand4 from "../images/12.jpg";
+import brand5 from "../images/13.png";
+import brand6 from "../images/14.jpg";
+import brand7 from "../images/15.jpg";
+import privacyPdf from "../images/privacy-policy.pdf";
 
 // Icon mapping
 const iconMap = {
-  Car, Factory, Wrench, Building2
+  Car, Factory, Wrench, Building2, privacyPdf
 };
+
+const clientLogos = [
+  { name: "Rockman Industries", logo: rockman },
+  { name: "Kaitaing", logo: kataing },
+  { name: "Bony Polymers", logo: bony },
+  { name: "Mega Autocomp", logo: mega1 },
+  { name: "MMT Autocomp", logo: mmt },
+  { name: "Abhijay Auto Parts", logo: abhijay },
+  { name: "Mega Industries", logo: mega },
+  { name: "POLYRA Plastics", logo: pol },
+  { name: "Dhanajay", logo: dhanajay },
+  { name: "Brand Partner", logo: brand2 },
+  { name: "Brand Partner2", logo: brand3 },
+  { name: "Brand Partner3", logo: brand4 },
+  { name: "Brand Partner4", logo: brand5 },
+  { name: "Brand Partner5", logo: brand6 },
+  { name: "Brand Partner6", logo: brand7 },
+];
 
 // Client Logos Section - Larger and More Visible
 export const ClientLogosSection = () => {
@@ -310,7 +345,7 @@ const AnimatedCounter = ({ value, suffix, label, inView, color = '#4285F4' }) =>
   return (
     <div className="text-center">
       <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color }}>
-        {count}{suffix}
+        {suffix}
       </div>
       <div className="text-gray-400 text-lg">{label}</div>
     </div>
@@ -743,8 +778,8 @@ export const Footer = () => {
             © 2025 {companyInfo.name}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-500 hover:text-brand transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-500 hover:text-brand transition-colors">Terms of Service</a>
+            <a href={privacyPdf} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-brand transition-colors">Privacy Policy</a>
+            {/* <a href="#" className="text-gray-500 hover:text-brand transition-colors">Terms of Service</a> */}
           </div>
         </div>
       </div>
