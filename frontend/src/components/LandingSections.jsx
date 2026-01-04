@@ -344,10 +344,10 @@ const AnimatedCounter = ({ value, suffix, label, inView, color = '#4285F4' }) =>
 
   return (
     <div className="text-center">
-      <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color }}>
+      {/*<div className="text-5xl md:text-6xl font-bold mb-2" >
         {suffix}
-      </div>
-      <div className="text-gray-400 text-lg">{label}</div>
+      </div>*/}
+      <div className="text-4xl font-bold mb-2" style={{ color }}>{label}</div>
     </div>
   );
 };
