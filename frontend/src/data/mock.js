@@ -391,8 +391,8 @@ export const navLinks = [
 ];
 
 export const stats = [
-    { value: 100, suffix: "100%", label: "Faster Quotation" },
+    { value: 100, suffix: "<70%", label: "Faster Quotation" },
     { value: 100, suffix: "100%", label: "Quote Accuracy" },
     { value: 100, suffix: "100%", label: "Real-time Dashboard" },
-    { value: 100, suffix: "100%", label: "Less Rework" }
+    { value: 100, suffix: "<50%", label: "Less Rework" }
 ];
